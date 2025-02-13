@@ -1,0 +1,9 @@
+.env
+data
+*venv*
+.vscode
+*.sh
+additional
+*__pycache__
+mongo_db_data
+analyse

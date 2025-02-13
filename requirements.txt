@@ -1,0 +1,12 @@
+motor==3.5.1
+redis==5.0.2
+emoji==2.12.1
+pandas==2.2.2
+pymongo==4.8.0
+aiogram==3.3.0
+asyncio==3.4.3
+colorlog==6.8.2
+aioredis==2.0.1
+openpyxl==3.1.5
+aiosmtplib==3.0.2
+pydantic-settings==2.2.1
