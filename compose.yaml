@@ -24,7 +24,7 @@ services:
     networks:
       - DB_network
     ports:
-      - 79:8888
+      - 80:8888
     volumes:
       - ${PWD}/data/logs:/usr/src/app/data/logs
     command: bash
