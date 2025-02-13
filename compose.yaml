@@ -6,7 +6,7 @@ services:
     networks:
       - DB_network
     ports:
-      - 27017:27017
+      - 27018:27018
     volumes:
       - ${PWD}/data/mongo_db_data:/data/db  
     environment:
