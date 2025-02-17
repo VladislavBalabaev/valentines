@@ -1,5 +1,6 @@
 import re
 import asyncio
+import logging
 
 from db.connect import get_mongo_users
 from configs.selected_ids import ADMINS
@@ -35,7 +36,12 @@ class UserConversion:
         if _id in ADMINS:
             username += " \033[92m[admin]\033[0m"
 
-        username_stripped = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]').sub('', username)
+        try:
+            username_stripped = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]').sub('', username)
+        except:
+            logging.exception(f"\nERROR: [Error doing `UserConversion.add` for user with _id={_id}]")
+            username_stripped = "NONE"
+
         username = f"({username + ')':<{25 + len(username) - len(username_stripped)}}"
 
         async with self.dict_lock:
