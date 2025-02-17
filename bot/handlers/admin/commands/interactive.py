@@ -197,10 +197,10 @@ async def send_message_to_all_message(message: types.Message, state: FSMContext)
     """
     Sends the admin's message to all users who have not blocked the bot and are active for matching.
     """
-    users = await find_all_users(["_id", "info.username", "blocked_bot", "survey.finished", "partner_survey.finished"])
+    users = await find_all_users(["_id", "info.username", "blocked_bot"])
 
     for user in users:
-        if user["blocked_bot"] == "no" and user["survey.finished"] == "yes" and user["partner_survey.finished"] == "yes":
+        if user["blocked_bot"] == "no":
             await send_msg_user(user["_id"], message.text)
 
     await state.clear()
