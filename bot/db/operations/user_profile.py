@@ -150,10 +150,9 @@ async def actualize_all_users():
     """
     Updates the profile information for all users who have active matching enabled.
     """
-    users = await find_all_users(["_id", "blocked_bot", "active_matching"])
+    users = await find_all_users(["_id"])
 
     for user in users:
-        if user["active_matching"] == "yes":
-            await actualize_user(user["_id"])
+        await actualize_user(user["_id"])
 
     return
