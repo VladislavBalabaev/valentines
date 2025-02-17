@@ -40,6 +40,7 @@ class UserConversion:
             username_stripped = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]').sub('', username)
         except:
             logging.exception(f"\nERROR: [Error doing `UserConversion.add` for user with _id={_id}]")
+            username = "NONE"
             username_stripped = "NONE"
 
         username = f"({username + ')':<{25 + len(username) - len(username_stripped)}}"
