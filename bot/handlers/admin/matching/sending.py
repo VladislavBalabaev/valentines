@@ -55,16 +55,16 @@ async def send_matching_client(matched: pd.DataFrame):
 
         if n == 0:
             await send_msg_user(user_id,
-                                f"В этот раз тебе не досталось тех, кому можно написать.\nВозможно, это потому что у тебя слишком много людей в черном списке.\n\nВерни кого-нибудь из него и в следующий раз шанс кого-нибудь получить будет больше")
+                                f"К сожалению, тебе не досталось тех, кому можно написать.\nВозможно, это потому что у тебя слишком много людей в черном списке.\n\nВерни кого-нибудь из него и в следующий раз шанс кого-нибудь получить будет больше")
         elif n == 1:
             await send_msg_user(user_id,
-                                f"В этот раз тебе выпал только один человек, которому ты можешь написать:")
+                                f"К сожалению, мы смогли подобрать для тебя только одного человека, которому ты можешь написать:")
 
             await send_msg_user(user_id,
                                 info_by_username(assignments[0]))
 
             await send_msg_user(user_id, 
-                                "Ты можешь написать ему его смайл. Он сразу поймет, что выпал тебе на кофе)")
+                                "Ты можешь написать ему его смайл. Он сразу поймет, что выпал тебе в ValentiNES")
         elif n == 2:
             await send_msg_user(user_id,
                                 info_by_username(assignments[0]))
@@ -73,7 +73,7 @@ async def send_matching_client(matched: pd.DataFrame):
                                 info_by_username(assignments[1]))
 
             await send_msg_user(user_id,
-                                f"Ты можешь написать им их смайл. Они сразу поймут, что выпали тебе на кофе)")
+                                f"Ты можешь написать им их смайл. Они сразу поймут, что выпали тебе в ValentiNES)")
         else:
             raise ValueError(f"_id='{user_id}' has more than 2 assignments.")
 
